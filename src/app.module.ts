@@ -7,10 +7,12 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from './User/schemas/user.schema';
 import { RouterModule } from '@nestjs/core';
 import { UserModule } from './User/User.Module';
+import { ConfigModule } from '@nestjs/config';
 
 
 @Module({
   imports: [
+    ConfigModule.forRoot({isGlobal:true}),
     UserModule,
     RouterModule.register([{
       path:'/user',
@@ -24,7 +26,7 @@ import { UserModule } from './User/User.Module';
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
     
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

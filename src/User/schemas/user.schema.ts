@@ -15,7 +15,7 @@ export class User {
   fullname: string;
 
   @Prop()
-  dateOfBirth: Date;
+  dateOfBirth: string;
 
   @Prop()
   gender: string;
